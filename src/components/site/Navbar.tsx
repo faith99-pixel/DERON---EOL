@@ -186,9 +186,6 @@ export function Navbar() {
                   <span className="font-display text-4xl tracking-wide">
                     {item.label}
                   </span>
-                  <span className="ml-3 text-xs tracking-[0.3em] text-[#9a8141]">
-                    0{i + 1}
-                  </span>
                 </motion.button>
               ))}
             </div>
