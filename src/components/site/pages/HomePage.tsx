@@ -13,21 +13,30 @@ export function HomePage() {
   return (
     <div>
       {/* ===================== HERO ===================== */}
-      <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#eff1dc]">
-        {/* Background architectural image (cream-toned gradient + grain) */}
+      <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#0d0d15]">
+        {/* Hero background image — law-firm interior with elegant dark overlay */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#f5f6e8] via-[#eff1dc] to-[#e6e8cf]" />
-          <div className="paper-grain absolute inset-0 opacity-60" />
-          {/* Soft gold radial glow */}
+          <Image
+            src="/assets/hero-office.jpg"
+            alt="Elegant law firm office interior"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover animate-slow-zoom"
+          />
+          {/* Layered overlay for legibility — warm dark wash to match brand */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0d0d15]/85 via-[#0d0d15]/70 to-[#0d0d15]/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d15] via-transparent to-[#0d0d15]/40" />
+          {/* Subtle gold radial glow */}
           <div
-            className="absolute -top-40 -right-40 w-[640px] h-[640px] rounded-full opacity-30 blur-3xl"
+            className="absolute -top-40 -right-40 w-[640px] h-[640px] rounded-full opacity-25 blur-3xl"
             style={{
               background:
                 "radial-gradient(circle, #b8a05a 0%, transparent 65%)",
             }}
           />
           <div
-            className="absolute -bottom-60 -left-40 w-[700px] h-[700px] rounded-full opacity-20 blur-3xl"
+            className="absolute -bottom-60 -left-40 w-[700px] h-[700px] rounded-full opacity-15 blur-3xl"
             style={{
               background:
                 "radial-gradient(circle, #9a8141 0%, transparent 65%)",
@@ -40,7 +49,7 @@ export function HomePage() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.4, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute top-24 left-0 right-0 h-px bg-[#9a8141]/30 origin-left mx-auto max-w-7xl"
+          className="absolute top-24 left-0 right-0 h-px bg-[#b8a05a]/30 origin-left mx-auto max-w-7xl"
         />
 
         <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-10 w-full pt-32 pb-20">
@@ -53,8 +62,8 @@ export function HomePage() {
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="flex items-center gap-4 mb-8"
               >
-                <span className="h-px w-12 bg-[#9a8141]" />
-                <span className="text-[10px] tracking-[0.4em] uppercase text-[#0d0d15]/60">
+                <span className="h-px w-12 bg-[#b8a05a]" />
+                <span className="text-[10px] tracking-[0.4em] uppercase text-[#eff1dc]/70">
                   Full-Service Law Firm · Ibadan, Nigeria
                 </span>
               </motion.div>
@@ -64,11 +73,11 @@ export function HomePage() {
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 1.1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display font-light text-[2.7rem] leading-[1.05] sm:text-6xl lg:text-[5rem] tracking-[-0.01em] text-[#0d0d15]"
+                className="font-display font-light text-[2.7rem] leading-[1.05] sm:text-6xl lg:text-[5rem] tracking-[-0.01em] text-[#eff1dc]"
               >
                 Counsel of
                 <br />
-                <span className="italic font-normal text-[#9a8141]">distinction,</span>
+                <span className="italic font-normal text-[#b8a05a]">distinction,</span>
                 <br />
                 depth of <span className="italic font-normal">experience.</span>
               </motion.h1>
@@ -78,7 +87,7 @@ export function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-8 text-base md:text-lg text-[#0d0d15]/70 leading-relaxed max-w-xl"
+                className="mt-8 text-base md:text-lg text-[#eff1dc]/75 leading-relaxed max-w-xl"
               >
                 Deron &amp; Eol Law Practice is a full-service firm advising
                 individuals, enterprises and institutions across corporate,
@@ -95,14 +104,14 @@ export function HomePage() {
               >
                 <button
                   onClick={() => setPage("practice")}
-                  className="group inline-flex items-center gap-3 bg-[#0d0d15] text-[#eff1dc] px-7 py-4 text-[11px] tracking-[0.26em] uppercase hover:bg-[#9a8141] transition-colors duration-300"
+                  className="group inline-flex items-center gap-3 bg-[#eff1dc] text-[#0d0d15] px-7 py-4 text-[11px] tracking-[0.26em] uppercase hover:bg-[#9a8141] hover:text-[#eff1dc] transition-colors duration-300"
                 >
                   Explore Practice
                   <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
                   onClick={() => setPage("contact")}
-                  className="inline-flex items-center gap-3 text-[11px] tracking-[0.26em] uppercase text-[#0d0d15] border-b border-[#0d0d15]/30 pb-2 hover:border-[#9a8141] hover:text-[#9a8141] transition-colors"
+                  className="inline-flex items-center gap-3 text-[11px] tracking-[0.26em] uppercase text-[#eff1dc] border-b border-[#eff1dc]/40 pb-2 hover:border-[#b8a05a] hover:text-[#b8a05a] transition-colors"
                 >
                   Engage the Firm
                 </button>
@@ -146,17 +155,17 @@ export function HomePage() {
         </div>
 
         {/* Marquee strip */}
-        <div className="absolute bottom-0 inset-x-0 border-t border-[#0d0d15]/10 bg-[#eff1dc]/60 backdrop-blur-sm overflow-hidden">
+        <div className="absolute bottom-0 inset-x-0 border-t border-[#eff1dc]/15 bg-[#0d0d15]/50 backdrop-blur-sm overflow-hidden">
           <div className="flex animate-marquee whitespace-nowrap py-3">
             {[...Array(2)].map((_, k) => (
               <div key={k} className="flex items-center">
                 {PRACTICE_AREAS.map((pa) => (
                   <span
                     key={pa.id}
-                    className="flex items-center text-[10px] tracking-[0.34em] uppercase text-[#0d0d15]/55 px-6"
+                    className="flex items-center text-[10px] tracking-[0.34em] uppercase text-[#eff1dc]/55 px-6"
                   >
                     {pa.title}
-                    <Scale size={11} className="ml-4 text-[#9a8141]" />
+                    <Scale size={11} className="ml-4 text-[#b8a05a]" />
                   </span>
                 ))}
               </div>
@@ -166,24 +175,61 @@ export function HomePage() {
       </section>
 
       {/* ===================== INTRO / PHILOSOPHY ===================== */}
-      <section className="bg-[#0d0d15] text-[#eff1dc] py-24 md:py-36">
-        <div className="mx-auto max-w-7xl px-5 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-5">
+      <section className="relative bg-[#0d0d15] text-[#eff1dc] py-24 md:py-36 overflow-hidden">
+        {/* Faint scales-of-justice backdrop in upper-right */}
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.08] pointer-events-none">
+          <Image
+            src="/assets/scales-justice.jpg"
+            alt=""
+            aria-hidden
+            fill
+            sizes="50vw"
+            className="object-cover object-center"
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Law library image */}
+            <div className="lg:col-span-5 order-2 lg:order-1">
+              <Reveal delay={0.15}>
+                <div className="relative">
+                  <div className="absolute -inset-3 border border-[#9a8141]/40 hidden md:block" />
+                  <div className="relative overflow-hidden aspect-[4/3] bg-[#1a1b1c]">
+                    <Image
+                      src="/assets/law-library.jpg"
+                      alt="Law library — rows of legal books"
+                      fill
+                      sizes="(min-width: 1024px) 460px, 100vw"
+                      className="object-cover animate-slow-zoom"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d15]/50 to-transparent" />
+                    <div className="absolute bottom-5 left-5 text-[#eff1dc]">
+                      <p className="text-[9px] tracking-[0.4em] uppercase text-[#b8a05a]">
+                        — Foundation
+                      </p>
+                      <p className="font-display text-lg mt-1">
+                        Grounded in precedent
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
+            <div className="lg:col-span-6 lg:col-start-7 order-1 lg:order-2 flex flex-col gap-8 pt-2">
               <Reveal>
                 <span className="text-[10px] tracking-[0.4em] uppercase text-[#b8a05a]">
                   — Our Philosophy
                 </span>
               </Reveal>
               <Reveal delay={0.1}>
-                <h2 className="mt-6 font-display font-light text-4xl md:text-5xl lg:text-6xl leading-[1.08]">
+                <h2 className="font-display font-light text-4xl md:text-5xl lg:text-6xl leading-[1.08]">
                   Law practiced as a
                   <span className="italic text-[#b8a05a]"> discipline</span>,
                   not merely a service.
                 </h2>
               </Reveal>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7 flex flex-col gap-8 pt-2">
               <Reveal delay={0.2}>
                 <p className="text-lg leading-relaxed text-[#eff1dc]/80">
                   We approach every instruction with the same conviction —
@@ -401,22 +447,39 @@ export function HomePage() {
       </section>
 
       {/* ===================== CTA BAND ===================== */}
-      <section className="bg-[#eff1dc] py-24 md:py-32 border-t border-[#0d0d15]/10">
-        <div className="mx-auto max-w-5xl px-5 md:px-10 text-center">
+      <section className="relative bg-[#0d0d15] text-[#eff1dc] py-28 md:py-40 overflow-hidden">
+        {/* Corporate building background */}
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/building.jpg"
+            alt=""
+            aria-hidden
+            fill
+            sizes="100vw"
+            className="object-cover opacity-25"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d15]/85 via-[#0d0d15]/80 to-[#0d0d15]" />
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-20 blur-3xl"
+            style={{ background: "radial-gradient(circle, #9a8141 0%, transparent 65%)" }}
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-5xl px-5 md:px-10 text-center">
           <Reveal>
-            <span className="text-[10px] tracking-[0.4em] uppercase text-[#9a8141]">
+            <span className="text-[10px] tracking-[0.4em] uppercase text-[#b8a05a]">
               — Engage the Firm
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-6 font-display font-light text-4xl md:text-6xl lg:text-7xl text-[#0d0d15] leading-[1.05]">
+            <h2 className="mt-6 font-display font-light text-4xl md:text-6xl lg:text-7xl leading-[1.05]">
               Have a matter that
               <br />
-              <span className="italic">deserves considered counsel?</span>
+              <span className="italic text-[#b8a05a]">deserves considered counsel?</span>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="mt-8 text-lg text-[#0d0d15]/65 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-8 text-lg text-[#eff1dc]/75 max-w-2xl mx-auto leading-relaxed">
               We welcome instructions from individuals, enterprises and
               institutions. Reach out to begin a conversation in confidence.
             </p>
@@ -424,7 +487,7 @@ export function HomePage() {
           <Reveal delay={0.3}>
             <button
               onClick={() => setPage("contact")}
-              className="mt-10 group inline-flex items-center gap-3 bg-[#0d0d15] text-[#eff1dc] px-8 py-4 text-[11px] tracking-[0.26em] uppercase hover:bg-[#9a8141] transition-colors duration-300"
+              className="mt-10 group inline-flex items-center gap-3 bg-[#eff1dc] text-[#0d0d15] px-8 py-4 text-[11px] tracking-[0.26em] uppercase hover:bg-[#9a8141] transition-colors duration-300"
             >
               Contact the Firm
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />

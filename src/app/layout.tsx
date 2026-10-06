@@ -1,27 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Cormorant_Garamond } from "next/font/google";
+import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Josefin Sans — a refined, less common geometric typeface that gives the
+// firm a distinctive voice (avoids the over-used Inter/Playfair combo that
+// reads as generic / AI-generated).
+const josefin = Josefin_Sans({
+  variable: "--font-josefin",
   subsets: ["latin"],
   display: "swap",
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
 
@@ -67,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${playfair.variable} ${cormorant.variable} antialiased bg-background text-foreground`}
+        className={`${josefin.variable} font-sans antialiased bg-background text-foreground`}
       >
         {children}
         <Toaster />

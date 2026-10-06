@@ -13,12 +13,19 @@ export function AboutPage() {
   return (
     <div>
       {/* ===================== HERO ===================== */}
-      <section className="relative bg-[#eff1dc] pt-40 pb-24 md:pt-52 md:pb-32 overflow-hidden">
+      <section className="relative bg-[#0d0d15] text-[#eff1dc] pt-40 pb-24 md:pt-52 md:pb-32 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#f5f6e8] to-[#eff1dc]" />
-          <div className="paper-grain absolute inset-0 opacity-50" />
+          <Image
+            src="/assets/interior-2.jpg"
+            alt="Refined law office interior"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d15]/90 via-[#0d0d15]/80 to-[#0d0d15]" />
           <div
-            className="absolute -top-40 right-0 w-[560px] h-[560px] rounded-full opacity-20 blur-3xl"
+            className="absolute -top-40 right-0 w-[560px] h-[560px] rounded-full opacity-25 blur-3xl"
             style={{ background: "radial-gradient(circle, #b8a05a 0%, transparent 65%)" }}
           />
         </div>
@@ -26,8 +33,8 @@ export function AboutPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-10">
           <Reveal>
             <div className="flex items-center gap-4 mb-8">
-              <span className="h-px w-12 bg-[#9a8141]" />
-              <span className="text-[10px] tracking-[0.4em] uppercase text-[#0d0d15]/60">
+              <span className="h-px w-12 bg-[#b8a05a]" />
+              <span className="text-[10px] tracking-[0.4em] uppercase text-[#eff1dc]/70">
                 About the Firm
               </span>
             </div>
@@ -35,9 +42,9 @@ export function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-8">
               <Reveal delay={0.1}>
-                <h1 className="font-display font-light text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.02] text-[#0d0d15]">
+                <h1 className="font-display font-light text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.02] text-[#eff1dc]">
                   A firm built on
-                  <span className="italic text-[#9a8141]"> discipline,</span>
+                  <span className="italic text-[#b8a05a]"> discipline,</span>
                   <br />
                   <span className="italic">depth</span> and discretion.
                 </h1>
@@ -45,7 +52,7 @@ export function AboutPage() {
             </div>
             <div className="lg:col-span-4">
               <Reveal delay={0.25}>
-                <p className="text-base md:text-lg leading-relaxed text-[#0d0d15]/70">
+                <p className="text-base md:text-lg leading-relaxed text-[#eff1dc]/75">
                   Deron &amp; Eol Law Practice is a full-service Nigerian law
                   firm, formally constituted in {FIRM.registered} and grounded
                   in {FIRM.yearsExperience} years of practice at the Bar.
