@@ -164,9 +164,11 @@ export function HeroCarousel({ onExplore }: { onExplore: () => void }) {
             Explore Practice
             <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
           </button>
+          {/* Slide count indicator — commented out per request
           <span className="text-[11px] tracking-[0.26em] uppercase text-[#eff1dc]/55">
             {String(index + 1).padStart(2, "0")} / {String(HERO_SLIDES.length).padStart(2, "0")}
           </span>
+          */}
         </motion.div>
       </div>
 
