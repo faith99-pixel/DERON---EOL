@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useSite } from "@/lib/site-store";
 import { FIRM, PRACTICE_AREAS, STATS } from "@/lib/content";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/Reveal";
+import { HeroCarousel } from "@/components/site/HeroCarousel";
 import { ArrowRight, ArrowUpRight, Scale } from "lucide-react";
 
 export function HomePage() {
@@ -12,172 +13,13 @@ export function HomePage() {
 
   return (
     <div>
-      {/* ===================== HERO ===================== */}
-      <section className="relative min-h-[100svh] flex items-center overflow-hidden bg-[#0d0d15]">
-        {/* Hero background image — law-firm interior with elegant dark overlay */}
-        <div className="absolute inset-0">
-          <Image
-            src="/assets/hero-office.jpg"
-            alt="Elegant law firm office interior"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover animate-slow-zoom"
-          />
-          {/* Layered overlay for legibility — warm dark wash to match brand */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0d0d15]/85 via-[#0d0d15]/70 to-[#0d0d15]/90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d15] via-transparent to-[#0d0d15]/40" />
-          {/* Subtle gold radial glow */}
-          <div
-            className="absolute -top-40 -right-40 w-[640px] h-[640px] rounded-full opacity-25 blur-3xl"
-            style={{
-              background:
-                "radial-gradient(circle, #b8a05a 0%, transparent 65%)",
-            }}
-          />
-          <div
-            className="absolute -bottom-60 -left-40 w-[700px] h-[700px] rounded-full opacity-15 blur-3xl"
-            style={{
-              background:
-                "radial-gradient(circle, #9a8141 0%, transparent 65%)",
-            }}
-          />
-        </div>
-
-        {/* Decorative thin gold rule top */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.4, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute top-24 left-0 right-0 h-px bg-[#b8a05a]/30 origin-left mx-auto max-w-7xl"
-        />
-
-        <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-10 w-full pt-32 pb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7">
-              {/* Eyebrow */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-center gap-4 mb-8"
-              >
-                <span className="h-px w-12 bg-[#b8a05a]" />
-                <span className="text-[10px] tracking-[0.4em] uppercase text-[#eff1dc]/70">
-                  Full-Service Law Firm · Ibadan, Nigeria
-                </span>
-              </motion.div>
-
-              {/* Headline */}
-              <motion.h1
-                initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 1.1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display font-light text-[2.7rem] leading-[1.05] sm:text-6xl lg:text-[5rem] tracking-[-0.01em] text-[#eff1dc]"
-              >
-                Counsel of
-                <br />
-                <span className="italic font-normal text-[#b8a05a]">distinction,</span>
-                <br />
-                depth of <span className="italic font-normal">experience.</span>
-              </motion.h1>
-
-              {/* Sub */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-8 text-base md:text-lg text-[#eff1dc]/75 leading-relaxed max-w-xl"
-              >
-                Deron &amp; Eol Law Practice is a full-service firm advising
-                individuals, enterprises and institutions across corporate,
-                real estate, governance, public policy and litigation — built
-                on sixteen years of considered practice.
-              </motion.p>
-
-              {/* CTAs */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4"
-              >
-                <button
-                  onClick={() => setPage("practice")}
-                  className="group inline-flex items-center gap-3 bg-[#eff1dc] text-[#0d0d15] px-7 py-4 text-[11px] tracking-[0.26em] uppercase hover:bg-[#9a8141] hover:text-[#eff1dc] transition-colors duration-300"
-                >
-                  Explore Practice
-                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button
-                  onClick={() => setPage("contact")}
-                  className="inline-flex items-center gap-3 text-[11px] tracking-[0.26em] uppercase text-[#eff1dc] border-b border-[#eff1dc]/40 pb-2 hover:border-[#b8a05a] hover:text-[#b8a05a] transition-colors"
-                >
-                  Engage the Firm
-                </button>
-              </motion.div>
-            </div>
-
-            {/* Founder portrait card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-5 lg:justify-self-end w-full max-w-sm"
-            >
-              <div className="relative">
-                <div className="absolute -inset-3 border border-[#9a8141]/40" />
-                <div className="relative overflow-hidden aspect-[4/5] bg-[#0d0d15]">
-                  <Image
-                    src="/assets/founder-ikeoluwa-adare.jpg"
-                    alt="Ikeoluwa Adare — Founder, Deron & Eol Law Practice"
-                    fill
-                    sizes="(min-width: 1024px) 384px, 100vw"
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d15]/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5 text-[#eff1dc]">
-                    <p className="text-[9px] tracking-[0.4em] uppercase text-[#b8a05a]">
-                      Founder
-                    </p>
-                    <p className="font-display text-xl mt-1">
-                      {FIRM.founder}
-                    </p>
-                    <p className="text-xs text-[#eff1dc]/70 mt-0.5">
-                      Principal Counsel · {FIRM.yearsExperience} years
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Marquee strip */}
-        <div className="absolute bottom-0 inset-x-0 border-t border-[#eff1dc]/15 bg-[#0d0d15]/50 backdrop-blur-sm overflow-hidden">
-          <div className="flex animate-marquee whitespace-nowrap py-3">
-            {[...Array(2)].map((_, k) => (
-              <div key={k} className="flex items-center">
-                {PRACTICE_AREAS.map((pa) => (
-                  <span
-                    key={pa.id}
-                    className="flex items-center text-[10px] tracking-[0.34em] uppercase text-[#eff1dc]/55 px-6"
-                  >
-                    {pa.title}
-                    <Scale size={11} className="ml-4 text-[#b8a05a]" />
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ===================== HERO CAROUSEL ===================== */}
+      <HeroCarousel onExplore={() => setPage("practice")} />
 
       {/* ===================== INTRO / PHILOSOPHY ===================== */}
       <section className="relative bg-[#0d0d15] text-[#eff1dc] py-24 md:py-36 overflow-hidden">
         {/* Faint scales-of-justice backdrop in upper-right */}
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.08] pointer-events-none">
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.06] pointer-events-none">
           <Image
             src="/assets/scales-justice.jpg"
             alt=""
@@ -190,26 +32,27 @@ export function HomePage() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Law library image */}
+            {/* Fountain pen signing a legal document */}
             <div className="lg:col-span-5 order-2 lg:order-1">
               <Reveal delay={0.15}>
                 <div className="relative">
                   <div className="absolute -inset-3 border border-[#9a8141]/40 hidden md:block" />
                   <div className="relative overflow-hidden aspect-[4/3] bg-[#1a1b1c]">
                     <Image
-                      src="/assets/law-library.jpg"
-                      alt="Law library — rows of legal books"
+                      src="/assets/philosophy-signing.jpg"
+                      alt="Fountain pen signing a legal document — diligence in every detail"
                       fill
                       sizes="(min-width: 1024px) 460px, 100vw"
-                      className="object-cover animate-slow-zoom"
+                      className="object-cover"
+                      quality={90}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d15]/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d15]/55 to-transparent" />
                     <div className="absolute bottom-5 left-5 text-[#eff1dc]">
                       <p className="text-[9px] tracking-[0.4em] uppercase text-[#b8a05a]">
                         — Foundation
                       </p>
                       <p className="font-display text-lg mt-1">
-                        Grounded in precedent
+                        Diligence in every detail
                       </p>
                     </div>
                   </div>
@@ -411,7 +254,6 @@ export function HomePage() {
                 <div className="relative">
                   <div className="absolute -inset-4 border border-[#9a8141]/40 hidden md:block" />
                   <motion.div
-                    whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                     className="relative overflow-hidden aspect-[4/5] bg-[#1a1b1c]"
                   >
@@ -420,9 +262,11 @@ export function HomePage() {
                       alt="Ikeoluwa Adare, Founder of Deron & Eol Law Practice"
                       fill
                       sizes="(min-width: 1024px) 560px, 100vw"
-                      className="object-cover animate-slow-zoom"
+                      className="object-cover"
+                      quality={95}
+                      priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d15]/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d15]/45 to-transparent" />
                   </motion.div>
                   {/* Floating quote */}
                   <motion.div

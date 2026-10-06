@@ -12,6 +12,10 @@ const NAV_ITEMS: { id: PageId; label: string }[] = PAGE_ORDER.map((id) => ({
   label: PAGE_LABELS[id],
 }));
 
+// Pages whose hero is dark — navbar must use light text over them when
+// transparent (not yet scrolled).
+const DARK_HERO_PAGES: PageId[] = ["home", "about"];
+
 export function Navbar() {
   const { page, setPage } = useSite();
   const [scrolled, setScrolled] = useState(false);
@@ -31,10 +35,20 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
+  // When the navbar is transparent AND the current page has a dark hero,
+  // the text/logo must be light so they remain visible.
+  const lightText = !scrolled && DARK_HERO_PAGES.includes(page);
+
   const go = (p: PageId) => {
     setPage(p);
     setMenuOpen(false);
   };
+
+  // Color tokens that flip with the navbar state
+  const ink = lightText ? "#eff1dc" : "#0d0d15";
+  const inkSoft = lightText ? "rgba(239, 241, 220, 0.8)" : "rgba(13, 13, 21, 0.8)";
+  const inkHover = lightText ? "#eff1dc" : "#0d0d15";
+  const gold = lightText ? "#b8a05a" : "#9a8141";
 
   return (
     <>
@@ -52,7 +66,14 @@ export function Navbar() {
             className="flex items-center gap-3 group"
             aria-label="Deron & Eol Law Practice — home"
           >
-            <div className="relative h-11 w-11 md:h-12 md:w-12 overflow-hidden rounded-full ring-1 ring-[#9a8141]/30 group-hover:ring-[#9a8141] transition-all">
+            <div
+              className="relative h-11 w-11 md:h-12 md:w-12 overflow-hidden rounded-full transition-all duration-500"
+              style={{
+                boxShadow: `0 0 0 1px ${
+                  lightText ? "rgba(184, 160, 90, 0.5)" : "rgba(154, 129, 65, 0.35)"
+                }`,
+              }}
+            >
               <Image
                 src="/assets/deo-logo.jpg"
                 alt="DEO logo"
@@ -62,10 +83,16 @@ export function Navbar() {
               />
             </div>
             <div className="flex flex-col leading-none text-left">
-              <span className="font-display text-lg md:text-xl tracking-[0.16em] text-[#0d0d15]">
+              <span
+                className="font-display text-lg md:text-xl tracking-[0.16em] transition-colors duration-500"
+                style={{ color: ink }}
+              >
                 DERON &amp; EOL
               </span>
-              <span className="mt-1 text-[8px] md:text-[9px] tracking-[0.42em] uppercase text-[#9a8141]">
+              <span
+                className="mt-1 text-[8px] md:text-[9px] tracking-[0.42em] uppercase transition-colors duration-500"
+                style={{ color: gold }}
+              >
                 Law Practice
               </span>
             </div>
@@ -78,7 +105,12 @@ export function Navbar() {
                 key={item.id}
                 onClick={() => go(item.id)}
                 data-active={page === item.id}
-                className="nav-link text-[11px] tracking-[0.28em] uppercase text-[#0d0d15]/80 hover:text-[#0d0d15] transition-colors py-1"
+                className="nav-link text-[11px] tracking-[0.28em] uppercase py-1 transition-colors"
+                style={{
+                  color: page === item.id ? inkHover : inkSoft,
+                  // The nav-link underline uses var(--gold); set inline
+                  // via a style tag override below.
+                }}
               >
                 {item.label}
               </button>
@@ -89,13 +121,31 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => go("contact")}
-              className="hidden md:inline-flex items-center text-[11px] tracking-[0.24em] uppercase border border-[#0d0d15] px-5 py-2.5 text-[#0d0d15] hover:bg-[#0d0d15] hover:text-[#eff1dc] transition-colors duration-300"
+              className="hidden md:inline-flex items-center text-[11px] tracking-[0.24em] uppercase px-5 py-2.5 transition-colors duration-300"
+              style={{
+                border: `1px solid ${lightText ? "rgba(239, 241, 220, 0.5)" : "#0d0d15"}`,
+                color: ink,
+                backgroundColor: "transparent",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = lightText
+                  ? "rgba(184, 160, 90, 0.95)"
+                  : "#0d0d15";
+                e.currentTarget.style.color = lightText
+                  ? "#0d0d15"
+                  : "#eff1dc";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = ink;
+              }}
             >
               Engage Us
             </button>
             <button
               onClick={() => setMenuOpen((o) => !o)}
-              className="md:hidden p-2 text-[#0d0d15]"
+              className="md:hidden p-2 transition-colors"
+              style={{ color: ink }}
               aria-label="Toggle menu"
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -103,6 +153,13 @@ export function Navbar() {
           </div>
         </div>
       </header>
+
+      {/* Override the nav-link underline color to match navbar state */}
+      <style>{`
+        header .nav-link::after {
+          background: ${gold} !important;
+        }
+      `}</style>
 
       {/* Mobile fullscreen menu */}
       <AnimatePresence>

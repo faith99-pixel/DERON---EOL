@@ -63,7 +63,9 @@ export function TeamPage() {
                       alt="Ikeoluwa Adare — Founder and Principal Counsel"
                       fill
                       sizes="(min-width: 1024px) 460px, 100vw"
-                      className="object-cover animate-slow-zoom"
+                      className="object-cover"
+                      quality={95}
+                      priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d15]/55 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-6">

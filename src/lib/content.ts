@@ -139,3 +139,46 @@ export const STATS = [
   { value: "2022", label: "Firm Established" },
   { value: "∞", label: "Commitment to Clients" },
 ];
+
+export const HERO_SLIDES = [
+  {
+    id: "corporate",
+    image: "/assets/carousel-corporate.jpg",
+    eyebrow: "Corporate & Commercial",
+    title: ["Advising enterprise from", "formation to exit."],
+    accent: "formation to exit.",
+    body: "From commercial transactions and corporate structuring to mergers, acquisitions and regulatory compliance — we move clients forward with confidence.",
+  },
+  {
+    id: "real-estate",
+    image: "/assets/carousel-realestate.jpg",
+    eyebrow: "Real Estate",
+    title: ["Title, transaction and", "investment, end to end."],
+    accent: "investment, end to end.",
+    body: "From a single lease to multi-asset portfolios and development projects — secured by rigorous due diligence and meticulous documentation.",
+  },
+  {
+    id: "grc",
+    image: "/assets/hero-office.jpg",
+    eyebrow: "Governance, Risk & Compliance",
+    title: ["Frameworks that protect", "and enable growth."],
+    accent: "enable growth.",
+    body: "Board advisory, data protection, ethics programmes and regulatory engagement — giving organisations the confidence to operate across jurisdictions.",
+  },
+  {
+    id: "public-policy",
+    image: "/assets/carousel-courtroom.jpg",
+    eyebrow: "Public Policy",
+    title: ["Where law meets regulation", "and the public interest."],
+    accent: "the public interest.",
+    body: "Legislative drafting, privatisation, public-private partnerships and political risk — bringing clarity to consequential policy decisions.",
+  },
+  {
+    id: "litigation",
+    image: "/assets/carousel-litigation.jpg",
+    eyebrow: "Litigation",
+    title: ["Decisive advocacy across", "commercial disputes."],
+    accent: "commercial disputes.",
+    body: "From contractual disputes, debt recovery and insolvency to labour, real property and public law matters — represented with rigour and discretion.",
+  },
+];

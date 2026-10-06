@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
     "*.space-z.ai",
     "preview-*.space-z.ai",
   ],
+  images: {
+    qualities: [75, 90, 95],
+  },
 };
 
 export default nextConfig;
