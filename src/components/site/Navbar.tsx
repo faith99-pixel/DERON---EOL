@@ -85,13 +85,13 @@ export function Navbar() {
             <div className="flex flex-col leading-none text-left">
               <span
                 className="font-display text-lg md:text-xl tracking-[0.16em] transition-colors duration-500"
-                style={{ color: menuOpen ? "#eff1dc" : ink }}
+                style={{ color: menuOpen && !scrolled ? "#eff1dc" : ink }}
               >
                 DERON &amp; EOL
               </span>
               <span
                 className="mt-1 text-[8px] md:text-[9px] tracking-[0.42em] uppercase transition-colors duration-500"
-                style={{ color: menuOpen ? "#b8a05a" : gold }}
+                style={{ color: menuOpen && !scrolled ? "#b8a05a" : gold }}
               >
                 Law Practice
               </span>
@@ -145,7 +145,7 @@ export function Navbar() {
             <button
               onClick={() => setMenuOpen((o) => !o)}
               className="md:hidden p-2 transition-colors"
-              style={{ color: menuOpen ? "#eff1dc" : ink }}
+              style={{ color: menuOpen && !scrolled ? "#eff1dc" : ink }}
               aria-label="Toggle menu"
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
