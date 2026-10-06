@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-display: var(--font-cormorant);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Brand palette derived from DEO logo */
+  --cream: #eff1dc;          /* primary background (logo bg) */
+  --cream-light: #f5f6e8;    /* lighter card surface */
+  --cream-deep: #e6e8cf;    /* slightly deeper cream for contrast blocks */
+  --ink: #0d0d15;            /* near-black from logo mark */
+  --ink-soft: #1a1b1c;
+  --gold: #9a8141;           /* antique gold accent */
+  --gold-light: #b8a05a;     /* lighter gold for hover */
+  --gold-deep: #7a6730;      /* deep gold for text on cream */
+
+  /* Map shadcn tokens to brand palette */
+  --background: #eff1dc;
+  --foreground: #0d0d15;
+  --card: #f5f6e8;
+  --card-foreground: #0d0d15;
+  --popover: #f5f6e8;
+  --popover-foreground: #0d0d15;
+  --primary: #0d0d15;
+  --primary-foreground: #eff1dc;
+  --secondary: #e6e8cf;
+  --secondary-foreground: #0d0d15;
+  --muted: #e6e8cf;
+  --muted-foreground: #5c5d52;
+  --accent: #9a8141;
+  --accent-foreground: #eff1dc;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(13, 13, 21, 0.12);
+  --input: rgba(13, 13, 21, 0.15);
+  --ring: #9a8141;
+  --chart-1: #9a8141;
+  --chart-2: #0d0d15;
+  --chart-3: #b8a05a;
+  --chart-4: #5c5d52;
+  --chart-5: #e6e8cf;
+  --sidebar: #f5f6e8;
+  --sidebar-foreground: #0d0d15;
+  --sidebar-primary: #0d0d15;
+  --sidebar-primary-foreground: #eff1dc;
+  --sidebar-accent: #e6e8cf;
+  --sidebar-accent-foreground: #0d0d15;
+  --sidebar-border: rgba(13, 13, 21, 0.12);
+  --sidebar-ring: #9a8141;
+}
+
+.dark {
+  --background: #0d0d15;
+  --foreground: #eff1dc;
+  --card: #1a1b1c;
+  --card-foreground: #eff1dc;
+  --popover: #1a1b1c;
+  --popover-foreground: #eff1dc;
+  --primary: #eff1dc;
+  --primary-foreground: #0d0d15;
+  --secondary: #1a1b1c;
+  --secondary-foreground: #eff1dc;
+  --muted: #1a1b1c;
+  --muted-foreground: #a8a99e;
+  --accent: #b8a05a;
+  --accent-foreground: #0d0d15;
+  --border: rgba(239, 241, 220, 0.12);
+  --input: rgba(239, 241, 220, 0.15);
+  --ring: #b8a05a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--gold);
+    color: var(--cream);
+  }
+}
+
+/* ===== Custom utility classes ===== */
+.font-serif { font-family: var(--font-playfair), Georgia, serif; }
+.font-display { font-family: var(--font-cormorant), Georgia, serif; }
+
+.tracking-luxe { letter-spacing: 0.28em; }
+.tracking-wide-2 { letter-spacing: 0.12em; }
+
+/* Elegant thin divider */
+.gold-rule {
+  height: 1px;
+  width: 64px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Cream paper texture overlay */
+.paper-grain {
+  position: relative;
+}
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0 0.08 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* Underline animation for nav links */
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  width: 100%;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+
+/* Slow zoom for hero imagery */
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+.animate-slow-zoom {
+  animation: slow-zoom 18s ease-in-out infinite alternate;
+}
+
+/* Reveal mask for the preloader wipe */
+@keyframes wipe-out {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(0); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--cream-deep); }
+::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border: 2px solid var(--cream-deep);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* Focus ring refinement */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
