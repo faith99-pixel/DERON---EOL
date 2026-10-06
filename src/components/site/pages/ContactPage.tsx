@@ -301,51 +301,17 @@ export function ContactPage() {
 
             <div className="lg:col-span-7">
               <Reveal delay={0.2}>
-                <div className="relative aspect-[4/3] bg-[#0d0d15] overflow-hidden border border-[#0d0d15]/15">
-                  {/* Stylised map block */}
-                  <div className="absolute inset-0 opacity-90">
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(rgba(154,129,65,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(154,129,65,0.18) 1px, transparent 1px)",
-                        backgroundSize: "44px 44px",
-                      }}
-                    />
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background:
-                          "radial-gradient(ellipse at 60% 55%, rgba(184,160,90,0.25) 0%, transparent 55%)",
-                      }}
-                    />
-                    {/* Roads */}
-                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300" preserveAspectRatio="none">
-                      <path d="M0 180 Q 120 160 220 200 T 400 220" stroke="#9a8141" strokeWidth="2" fill="none" opacity="0.55" />
-                      <path d="M50 0 Q 90 120 180 150 T 280 300" stroke="#9a8141" strokeWidth="1.5" fill="none" opacity="0.4" />
-                      <path d="M0 80 L 400 110" stroke="#9a8141" strokeWidth="1" fill="none" opacity="0.3" />
-                      <path d="M300 0 L 260 300" stroke="#9a8141" strokeWidth="1" fill="none" opacity="0.3" />
-                    </svg>
-                  </div>
-                  {/* Pin */}
-                  <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
-                    className="absolute top-[55%] left-[58%] -translate-x-1/2 -translate-y-1/2"
-                  >
-                    <div className="relative">
-                      <span className="absolute -inset-4 rounded-full bg-[#9a8141]/30 animate-ping" />
-                      <div className="relative h-5 w-5 rounded-full bg-[#9a8141] ring-4 ring-[#eff1dc]" />
-                    </div>
-                    <div className="absolute top-7 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#eff1dc] text-[#0d0d15] px-3 py-1.5 text-[10px] tracking-[0.18em] uppercase shadow-lg">
-                      DEO · {FIRM.address.city}
-                    </div>
-                  </motion.div>
-                  <div className="absolute bottom-4 left-4 text-[#eff1dc]/60 text-[10px] tracking-[0.24em] uppercase">
-                    {FIRM.address.line1}
-                  </div>
+                <div className="relative aspect-[4/3] overflow-hidden border border-[#0d0d15]/15">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.0!2d3.8964!3d7.3986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s10+Awoyelu+Close%2C+Ashi%2C+Ibadan%2C+Nigeria!5e0!3m2!1sen!2sng!4v1"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, position: "absolute", inset: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Deron & Eol Law Practice — 10 Awoyelu Close, Ashi, Ibadan"
+                  />
                 </div>
               </Reveal>
             </div>
