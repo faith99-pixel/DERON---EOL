@@ -104,7 +104,7 @@ export function TeamPage() {
                 <p className="text-lg leading-relaxed text-[#eff1dc]/85">
                   Ikeoluwa Adare is the founder and principal counsel of Deron
                   &amp; Eol Law Practice. Called to the Nigerian Bar in{" "}
-                  {FIRM.establishedPractising}, he has, over the course of{" "}
+                  {FIRM.establishedPractising}, she has, over the course of{" "}
                   {FIRM.yearsExperience} years, built a practice defined by its
                   breadth — advising clients across corporate and commercial
                   transactions, real estate, governance and litigation.
@@ -112,17 +112,17 @@ export function TeamPage() {
               </Reveal>
               <Reveal delay={0.55}>
                 <p className="mt-5 text-base leading-relaxed text-[#eff1dc]/65">
-                  His counsel is shaped by a conviction that law is a discipline
+                  Her counsel is shaped by a conviction that law is a discipline
                   of judgment — one that must be exercised with rigour,
                   commercial awareness and discretion. From the founding of
                   enterprises to the perfection of title and the resolution of
-                  disputes, clients value his ability to bring clarity to
+                  disputes, clients value her ability to bring clarity to
                   complexity and steadiness to consequence.
                 </p>
               </Reveal>
               <Reveal delay={0.65}>
                 <p className="mt-5 text-base leading-relaxed text-[#eff1dc]/65">
-                  In {FIRM.registered}, he formally constituted Deron &amp; Eol
+                  In {FIRM.registered}, she formally constituted Deron &amp; Eol
                   Law Practice — drawing together a disciplined body of expertise
                   under one standard, to serve a growing roster of individuals,
                   enterprises and institutions.
