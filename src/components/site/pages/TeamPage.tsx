@@ -59,7 +59,7 @@ export function TeamPage() {
                   />
                   <div className="relative overflow-hidden aspect-[4/5] bg-[#1a1b1c]">
                     <Image
-                      src="/assets/founder-ikeoluwa-adare.jpg"
+                      src="/assets/Ikeoluwa_image2.jpeg"
                       alt="Ikeoluwa Adare — Founder and Principal Counsel"
                       fill
                       sizes="(min-width: 1024px) 460px, 100vw"

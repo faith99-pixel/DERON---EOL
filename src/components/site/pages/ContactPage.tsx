@@ -21,7 +21,9 @@ export function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulated submission — in production wire to an API route.
+    const subject = `New Enquiry${form.practice ? ` — ${form.practice}` : ""} from ${form.name}`;
+    const body = `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone || "—"}\nPractice Area: ${form.practice || "—"}\n\nMatter Outline:\n${form.message}`;
+    window.location.href = `mailto:deroneol22@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 6000);
     setForm({ name: "", email: "", phone: "", practice: "", message: "" });
@@ -175,7 +177,7 @@ export function ContactPage() {
                   className="bg-[#1a1b1c] p-7 md:p-10 border border-[#eff1dc]/10"
                 >
                   <h3 className="font-display text-2xl md:text-3xl text-[#eff1dc] mb-2">
-                    Send an instruction
+                    Contact Us
                   </h3>
                   <p className="text-sm text-[#eff1dc]/55 mb-8">
                     All enquiries are treated in strict confidence.
@@ -244,14 +246,9 @@ export function ContactPage() {
                     className="mt-8 group inline-flex items-center gap-3 bg-[#9a8141] text-[#0d0d15] px-7 py-4 text-[11px] tracking-[0.26em] uppercase hover:bg-[#eff1dc] disabled:opacity-70 transition-colors duration-300"
                   >
                     {submitted ? (
-                      <>
-                        <Check size={15} /> Instruction received
-                      </>
+                      <><Check size={15} /> Instruction received</>
                     ) : (
-                      <>
-                        Send instruction
-                        <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-                      </>
+                      <>Submit <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" /></>
                     )}
                   </button>
 

@@ -258,7 +258,7 @@ export function HomePage() {
                     className="relative overflow-hidden aspect-[4/5] bg-[#1a1b1c]"
                   >
                     <Image
-                      src="/assets/founder-ikeoluwa-adare.jpg"
+                      src="/assets/Ike.jpeg"
                       alt="Ikeoluwa Adare, Founder of Deron & Eol Law Practice"
                       fill
                       sizes="(min-width: 1024px) 560px, 100vw"
