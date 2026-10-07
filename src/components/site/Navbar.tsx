@@ -171,7 +171,7 @@ export function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="flex-1 flex flex-col justify-center px-8">
+            <div className="flex-1 flex flex-col justify-center px-8 pt-24">
               {NAV_ITEMS.map((item, i) => (
                 <motion.button
                   key={item.id}
